@@ -1,0 +1,371 @@
+[
+    {
+        "transaction_id": "TXN-047324FB",
+        "timestamp": "2026-01-20T12:54:28",
+        "store": {
+            "store_id": "STR-01",
+            "location": "West Lisaside",
+            "region": "East"
+        },
+        "customer": {
+            "customer_id": "USR-884",
+            "personal_info": {
+                "full_name": "Jacob Hernandez",
+                "email": "bleach@example.net"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 2
+            },
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 3
+            }
+        ],
+        "payment": {
+            "method": "Credit Card",
+            "currency": "USD",
+            "total_amount": 108.97,
+            "tax": 8.72
+        }
+    },
+    {
+        "transaction_id": "TXN-6D0AE652",
+        "timestamp": "2026-01-21T08:09:14",
+        "store": {
+            "store_id": "STR-01",
+            "location": "Port Veronica",
+            "region": "West"
+        },
+        "customer": {
+            "customer_id": "USR-301",
+            "personal_info": {
+                "full_name": "Jessica Malone",
+                "email": "debbieblackwell@example.net"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 2
+            }
+        ],
+        "payment": {
+            "method": "Crypto",
+            "currency": "USD",
+            "total_amount": 49.0,
+            "tax": 3.92
+        }
+    },
+    {
+        "transaction_id": "TXN-1C91B2FE",
+        "timestamp": "2026-01-20T17:09:29",
+        "store": {
+            "store_id": "STR-02",
+            "location": "Mendozashire",
+            "region": "West"
+        },
+        "customer": {
+            "customer_id": "USR-766",
+            "personal_info": {
+                "full_name": "Jennifer Moore",
+                "email": "bglenn@example.com"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 1
+            }
+        ],
+        "payment": {
+            "method": "PayPal",
+            "currency": "USD",
+            "total_amount": 19.99,
+            "tax": 1.6
+        }
+    },
+    {
+        "transaction_id": "TXN-CAEB732C",
+        "timestamp": "2026-01-21T22:42:04",
+        "store": {
+            "store_id": "STR-01",
+            "location": "Dianeville",
+            "region": "North"
+        },
+        "customer": {
+            "customer_id": "USR-171",
+            "personal_info": {
+                "full_name": "Megan Woodward",
+                "email": "vangmary@example.org"
+            },
+            "loyalty_member": true
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-003",
+                "sku": "SKU-GRN",
+                "category": "Home",
+                "unit_price": 89.0,
+                "quantity": 3
+            }
+        ],
+        "payment": {
+            "method": "Crypto",
+            "currency": "USD",
+            "total_amount": 267.0,
+            "tax": 21.36
+        }
+    },
+    {
+        "transaction_id": "TXN-A3D88426",
+        "timestamp": "2026-01-17T16:43:36",
+        "store": {
+            "store_id": "STR-01",
+            "location": "South Jack",
+            "region": "North"
+        },
+        "customer": {
+            "customer_id": "USR-949",
+            "personal_info": {
+                "full_name": "Robert Poole",
+                "email": "reynoldsashley@example.org"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 3
+            },
+            {
+                "product_id": "PROD-003",
+                "sku": "SKU-GRN",
+                "category": "Home",
+                "unit_price": 89.0,
+                "quantity": 1
+            },
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 2
+            }
+        ],
+        "payment": {
+            "method": "PayPal",
+            "currency": "USD",
+            "total_amount": 202.48,
+            "tax": 16.2
+        }
+    },
+    {
+        "transaction_id": "TXN-AC862F36",
+        "timestamp": "2026-01-08T18:51:09",
+        "store": {
+            "store_id": "STR-01",
+            "location": "Odonnellville",
+            "region": "East"
+        },
+        "customer": {
+            "customer_id": "USR-687",
+            "personal_info": {
+                "full_name": "Nathan Johnston",
+                "email": "greencody@example.net"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 5
+            },
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 3
+            }
+        ],
+        "payment": {
+            "method": "PayPal",
+            "currency": "USD",
+            "total_amount": 173.45,
+            "tax": 13.88
+        }
+    },
+    {
+        "transaction_id": "TXN-A6F1FF90",
+        "timestamp": "2025-12-30T11:48:48",
+        "store": {
+            "store_id": "STR-01",
+            "location": "Bendertown",
+            "region": "North"
+        },
+        "customer": {
+            "customer_id": "USR-876",
+            "personal_info": {
+                "full_name": "Angela Morris",
+                "email": "rgeorge@example.com"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 3
+            }
+        ],
+        "payment": {
+            "method": "Credit Card",
+            "currency": "USD",
+            "total_amount": 73.5,
+            "tax": 5.88
+        }
+    },
+    {
+        "transaction_id": "TXN-8048E0D1",
+        "timestamp": "2026-01-08T00:28:33",
+        "store": {
+            "store_id": "STR-01",
+            "location": "Mcclurebury",
+            "region": "West"
+        },
+        "customer": {
+            "customer_id": "USR-226",
+            "personal_info": {
+                "full_name": "Melissa Michael",
+                "email": "amiller@example.net"
+            },
+            "loyalty_member": true
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 3
+            },
+            {
+                "product_id": "PROD-003",
+                "sku": "SKU-GRN",
+                "category": "Home",
+                "unit_price": 89.0,
+                "quantity": 2
+            },
+            {
+                "product_id": "PROD-002",
+                "sku": "SKU-BLU",
+                "category": "Apparel",
+                "unit_price": 24.5,
+                "quantity": 5
+            }
+        ],
+        "payment": {
+            "method": "PayPal",
+            "currency": "USD",
+            "total_amount": 360.47,
+            "tax": 28.84
+        }
+    },
+    {
+        "transaction_id": "TXN-A14ACBDD",
+        "timestamp": "2026-01-05T12:31:46",
+        "store": {
+            "store_id": "STR-02",
+            "location": "Karenstad",
+            "region": "East"
+        },
+        "customer": {
+            "customer_id": "USR-177",
+            "personal_info": {
+                "full_name": "Lisa Shelton",
+                "email": "patrickscott@example.org"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-003",
+                "sku": "SKU-GRN",
+                "category": "Home",
+                "unit_price": 89.0,
+                "quantity": 4
+            }
+        ],
+        "payment": {
+            "method": "Credit Card",
+            "currency": "USD",
+            "total_amount": 356.0,
+            "tax": 28.48
+        }
+    },
+    {
+        "transaction_id": "TXN-A0D9D9F7",
+        "timestamp": "2025-12-27T16:47:28",
+        "store": {
+            "store_id": "STR-01",
+            "location": "East Lisa",
+            "region": "East"
+        },
+        "customer": {
+            "customer_id": "USR-952",
+            "personal_info": {
+                "full_name": "Troy Lozano",
+                "email": "billy65@example.com"
+            },
+            "loyalty_member": false
+        },
+        "line_items": [
+            {
+                "product_id": "PROD-003",
+                "sku": "SKU-GRN",
+                "category": "Home",
+                "unit_price": 89.0,
+                "quantity": 4
+            },
+            {
+                "product_id": "PROD-001",
+                "sku": "SKU-RED",
+                "category": "Apparel",
+                "unit_price": 19.99,
+                "quantity": 4
+            }
+        ],
+        "payment": {
+            "method": "PayPal",
+            "currency": "USD",
+            "total_amount": 435.96,
+            "tax": 34.88
+        }
+    }
+]
