@@ -49,7 +49,7 @@ def generate_transaction():
         },
         "line_items": line_items,
         "payment": {
-            "method": random.choice(["Credit Card", "PayPal", "Crypto"]),
+            "method": random.choice(["Credit Card", "PayPal", "Cash"]),
             "currency": "USD",
             "total_amount": round(total_amt, 2),
             "tax": round(total_amt * 0.08, 2)

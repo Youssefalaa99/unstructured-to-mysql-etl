@@ -64,7 +64,7 @@
             }
         ],
         "payment": {
-            "method": "Crypto",
+            "method": "Cash",
             "currency": "USD",
             "total_amount": 49.0,
             "tax": 3.92
@@ -128,7 +128,7 @@
             }
         ],
         "payment": {
-            "method": "Crypto",
+            "method": "Cash",
             "currency": "USD",
             "total_amount": 267.0,
             "tax": 21.36
