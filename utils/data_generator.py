@@ -8,9 +8,9 @@ fake = Faker()
 def generate_transaction():
     # Pre-define a few products to simulate recurring product IDs
     products = [
-        {"id": "PROD-001", "sku": "SKU-RED", "cat": "Apparel", "price": 19.99},
-        {"id": "PROD-002", "sku": "SKU-BLU", "cat": "Apparel", "price": 24.50},
-        {"id": "PROD-003", "sku": "SKU-GRN", "cat": "Home", "price": 89.00},
+        {"code": "PROD-001", "sku": "SKU-RED", "cat": "Apparel", "price": 19.99},
+        {"code": "PROD-002", "sku": "SKU-BLU", "cat": "Apparel", "price": 24.50},
+        {"code": "PROD-003", "sku": "SKU-GRN", "cat": "Home", "price": 89.00},
     ]
 
     # Pick 1-3 random products for this transaction
@@ -22,7 +22,7 @@ def generate_transaction():
     for p in selected_products:
         qty = random.randint(1, 5)
         line_items.append({
-            "product_id": p["id"],
+            "product_code": p["code"],
             "sku": p["sku"],
             "category": p["cat"],
             "unit_price": p["price"],
@@ -32,15 +32,16 @@ def generate_transaction():
 
     # Build the nested structure
     transaction = {
-        "transaction_id": f"TXN-{fake.uuid4()[:8].upper()}",
+        "transaction_code": f"TXN-{fake.uuid4()[:8].upper()}",
         "timestamp": fake.date_time_between(start_date='-30d', end_date='now').isoformat(),
         "store": {
-            "store_id": random.choice(["STR-01", "STR-02"]),
+            # "store_code": random.choice(["STR-01", "STR-02"]),
+            "store_code": f"STR-{random.randint(10, 99)}",
             "location": fake.city(),
             "region": random.choice(["North", "South", "East", "West"])
         },
         "customer": {
-            "customer_id": f"USR-{random.randint(100, 999)}",
+            "customer_code": f"USR-{random.randint(100, 999)}",
             "personal_info": {
                 "full_name": fake.name(),
                 "email": fake.email()
