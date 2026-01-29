@@ -61,6 +61,8 @@ def generate_transaction():
 # Generate a list of 10 transactions
 data_set = [generate_transaction() for _ in range(10)]
 
+
 # Save to a file
-with open('dummy_transactions.json', 'w') as f:
+file_name = f"dummy_transactions_{datetime.now():%Y%m%d_%H%M%S}.json"
+with open(file_name, 'w') as f:
     json.dump(data_set, f, indent=4)

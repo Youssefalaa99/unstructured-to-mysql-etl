@@ -12,7 +12,7 @@ CREATE TABLE `mydb`.`transaction_items` (
 DROP TABLE IF EXISTS `mydb`.`transactions`;
 CREATE TABLE `mydb`.`transactions` (
   `transaction_id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `transaction_code` varchar(10),
+  `transaction_code` varchar(20) UNIQUE,
   `created_at` timestamp,
   `store_id` integer,
   `customer_id` integer,
@@ -24,7 +24,7 @@ CREATE TABLE `mydb`.`transactions` (
 DROP TABLE IF EXISTS `mydb`.`stores`;
 CREATE TABLE `mydb`.`stores` (
   `store_id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `store_code` varchar(10),
+  `store_code` varchar(20) UNIQUE,
   `location` varchar(50),
   `region` ENUM('North','South','East','West')
 );
@@ -32,7 +32,7 @@ CREATE TABLE `mydb`.`stores` (
 DROP TABLE IF EXISTS `mydb`.`customers`;
 CREATE TABLE `mydb`.`customers` (
   `customer_id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `customer_code` varchar(10),
+  `customer_code` varchar(20) UNIQUE,
   `first_name` varchar(50),
   `last_name` varchar(50),
   `email` varchar(100),
@@ -42,7 +42,7 @@ CREATE TABLE `mydb`.`customers` (
 DROP TABLE IF EXISTS `mydb`.`products`;
 CREATE TABLE `mydb`.`products` (
   `product_id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `product_code` varchar(10),
+  `product_code` varchar(20) UNIQUE,
   `sku` varchar(50),
   `category` varchar(50),
   `price` decimal(8,2)
