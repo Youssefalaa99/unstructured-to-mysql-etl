@@ -23,9 +23,9 @@ default_args = {
     'owner': 'Youssef',
     'depends_on_past': False,
     'email': ['yossalaa.99@gmail.com'],
-    'email_on_failure': False,
+    'email_on_failure': True,
     'email_on_retry': False,
-    'retries': 0,
+    'retries': 1,
     'retry_delay': timedelta(minutes=1),
 }
 
@@ -34,27 +34,29 @@ def extract_and_stage():
     records = []
     for file_name in files:
         with open(os.path.join(INPUT_FILES_DIR,file_name),'r') as f:
+            print(f"Reading file {file_name}")
             data = json.load(f)
             # print(data)
             # print(json.dumps(data, indent=4))
             records.extend(data)
 
+        print("Processing files...")
         # print(records)
         df = pd.json_normalize(records)
         # print(df)
         
         # Flatten logic 
         df_products = pd.json_normalize(records, record_path=['line_items'])[['product_code', 'sku', 'category', 'unit_price']].drop_duplicates()
-        print(f"products:{df_products}")
+        # print(f"products:{df_products}")
         
         df_transactions = pd.json_normalize(records)[['transaction_code', 'timestamp', 'store.store_code', 'customer.customer_code', 'payment.method', 'payment.total_amount','payment.tax']]
         df_transactions.columns = ['transaction_code', 'created_at', 'store_code', 'customer_code', 'payment_method', 'total_amount','tax']
         df_transactions['created_at'] = pd.to_datetime(df_transactions['created_at'])
-        print(f"transactions:{df_transactions}")
+        # print(f"transactions:{df_transactions}")
 
         df_stores = pd.json_normalize(records)[['store.store_code','store.location','store.region']]
         df_stores.columns = ['store_code','location','region']
-        print(f"stores:{df_stores}")
+        # print(f"stores:{df_stores}")
         
         df_customers = pd.json_normalize(records)[['customer.customer_code','customer.personal_info.full_name','customer.personal_info.email','customer.loyalty_member']]
         df_customers.columns = ['customer_code','full_name','email','loyalty_member']
@@ -62,10 +64,10 @@ def extract_and_stage():
         df_customers['first_name'] = df_customers['full_name'].str.split().str[0]
         df_customers['last_name']  = df_customers['full_name'].str.split().str[1:].str.join(' ')
         df_customers = df_customers[['customer_code','first_name','last_name','email','loyalty_member']]
-        print(f"customers: {df_customers}")
+        # print(f"customers: {df_customers}")
 
         df_transaction_items = pd.json_normalize(records, record_path=['line_items'],meta=['transaction_code'])[['product_code','transaction_code','quantity']]
-        print(f"transaction_items:{df_transaction_items}")
+        # print(f"transaction_items:{df_transaction_items}")
 
         # Load to staging
         print("Inserting into stg products...")
@@ -168,7 +170,7 @@ with DAG(
         filepath="/opt/airflow/incoming/*.json",
         fs_conn_id="fs_default",
         poke_interval=5,   # check every 5s
-        timeout=60*60,    # fail after 1 hour
+        timeout=60*60 - 10,    # fail after 1 hour
         mode="poke"
     )
 

@@ -9,6 +9,11 @@ x-airflow-common:
     AIRFLOW__CORE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__SMTP__SMTP_HOST: smtp
+    AIRFLOW__SMTP__SMTP_PORT: 1025
+    AIRFLOW__SMTP__SMTP_STARTTLS: "false"
+    AIRFLOW__SMTP__SMTP_SSL: "false"
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: "airflow@example.com"
     # AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: -r /opt/airflow/requirements.txt
   volumes:
@@ -21,6 +26,8 @@ x-airflow-common:
   user: "${AIRFLOW_UID}:0"
   depends_on:
     postgres:
+      condition: service_healthy
+    smtp:
       condition: service_healthy
 
 
@@ -38,6 +45,17 @@ services:
       retries: 3
     ports:
       - "5432:5432"
+
+  smtp:
+    image: mailhog/mailhog
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 1025 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - "1025:1025"
+      - "8025:8025"
   
   mysql:
     image: mysql:8.0

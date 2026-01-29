@@ -1,1 +1,7 @@
+run docker
+run docker-compose up -d airflow-webserver "to start again if fail"
 use this in mysql conn: ?allowPublicKeyRetrieval=true&useSSL=false
+run ddl
+make conn in airflow
+
+fake mail : http://192.168.71.128:8025/
