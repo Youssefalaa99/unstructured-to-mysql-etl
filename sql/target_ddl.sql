@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `mydb`.`transactions`;
 CREATE TABLE `mydb`.`transactions` (
   `transaction_id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `transaction_code` varchar(20) UNIQUE,
-  `created_at` timestamp,
+  `created_at` datetime,
   `store_id` integer,
   `customer_id` integer,
   `payment_method` ENUM('Credit Card','Cash','PayPal'),
@@ -61,3 +61,17 @@ ALTER TABLE `transactions` ADD FOREIGN KEY (`customer_id`) REFERENCES `customers
 ALTER TABLE `transaction_items` ADD FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`);
 
 ALTER TABLE `transaction_items` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+
+-- Indexes
+CREATE INDEX idx_transactions_created_at ON transactions (created_at); -- helps time-based queries (heavy but necessary)
+
+CREATE INDEX idx_transactions_customer ON transactions (customer_id); -- speeds customer history lookups
+
+CREATE INDEX idx_transaction_items_transaction_id ON transaction_items (transaction_id);  -- get items for this transcation
+
+CREATE INDEX idx_customers_customer_code ON customers (customer_code); -- speeds customer code retrieval 
+
+CREATE INDEX idx_products_product_code ON products (product_code);  -- speeds product code retreival 
+
+CREATE INDEX idx_products_sku ON products (sku);  -- for quick sku lookups and grouping
